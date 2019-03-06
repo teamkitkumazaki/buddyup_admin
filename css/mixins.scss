@@ -1,0 +1,46 @@
+@charset "UTF-8";
+$basicBlack: #1f2023;
+$basicYellow: #ffb500;
+$basicGray: #ececec;
+$basicGray2: #b8b7b7;
+$gray01: #333;
+$gray02: #666;
+@font-face {
+   font-family: 'Noto';
+   font-style: normal;
+   font-weight: bold;
+   src: url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Bold.woff2) format('woff2'),
+        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Bold.woff) format('woff'),
+        url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Bold.otf) format('opentype');
+ }
+ @font-face {
+    font-family: 'Noto';
+    font-style: normal;
+    font-weight: normal;
+    src: url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.woff2) format('woff2'),
+         url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.woff) format('woff'),
+         url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.otf) format('opentype');
+  }
+
+body {
+	font-size: 12px;
+	line-height: 1;
+  background: #fff;
+  color: #393E46;
+	font-family: 'Noto', 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+@mixin flexSet{
+  display: flex;
+  flex-wrap: wrap;
+}
+@mixin bgSet{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+@mixin hover{
+  transition: opacity .5s;
+  &:hover{
+    opacity: 0.8;
+  }
+}

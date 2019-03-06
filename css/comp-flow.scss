@@ -1,0 +1,70 @@
+@import 'mixins.scss';
+.comp-flow{
+  margin: 45px auto 35px;
+  ul{
+    @include flexSet;
+    justify-content: center;
+    position: relative;
+    li{
+      position: relative;
+      width: 100px;
+      margin-right: 80px;
+      text-align: center;
+      &::before{
+        display: block;
+        content: "";
+        width: calc(100% + 120px);
+        height: 3px;
+        background: $basicGray2;
+        position: absolute;
+        top:25px;
+        left:30px;
+        margin: auto;
+      }
+      .num{
+        position: relative;
+        z-index: 10;
+        display: block;
+        text-align: center;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+        margin: 0 auto 10px;
+        border-radius: 50%;
+        background: $basicGray2;
+        pointer-events: none;
+        transition: background .3s;
+      }
+      .txt{
+        display: block;
+        font-size: 13px;
+        line-height: 1.4;
+        letter-spacing: normal;
+        color: #000000;
+      }
+      &.active{
+        .num{
+          background: $basicYellow;
+        }
+      }
+      &:last-child{
+        margin-right:0;
+          &::before{
+            display: none;
+          }
+          .num{
+            text-indent: -9999px;
+            background:{
+              repeat: no-repeat;
+              image: url(../img/flow/check.svg);
+              position: center;
+              size: 14px;
+            }
+          }
+      }
+    }
+  }
+}

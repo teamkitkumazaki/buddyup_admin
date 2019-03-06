@@ -1,0 +1,64 @@
+@import 'mixins.scss';
+.side{
+  position: fixed;
+  top:60px;
+  left:0;
+  width: 210px;
+  height: 100vh;
+  background: $basicBlack;
+  border-top: 1px solid $gray02;
+  nav{
+    li{
+      a{
+        display: block;
+        padding: 0px 25px;
+        position: relative;
+        height: 55px;
+        line-height: 55px;
+        @include hover;
+        img{
+          position: absolute;
+          top:0;
+          bottom:0;
+          left:25px;
+          margin: auto;
+          width: 25px;
+          filter: brightness(0) invert(1);
+        }
+        span{
+          display: block;
+          padding-left: 45px;
+          font-size: 16px;
+          color: #fff;
+        }
+      }
+      &.active{
+        a{
+          &::before{
+            display: block;
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 100%;
+            background: $basicYellow;
+            top:0;
+            bottom:0;
+            left:0;
+            margin: auto;
+          }
+          &.subcat{
+            &::before{
+              display: none;
+            }
+          }
+          img{
+            filter: brightness(1) invert(0);
+          }
+          span{
+            color: $basicYellow;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,354 @@
+@mixin flexSet{
+  display: flex;
+  flex-wrap: wrap;
+}
+@mixin bgSet{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center cetner;
+}
+@mixin hover{
+  transition: opacity .5s;
+  &:hover{
+    opacity: 0.8;
+  }
+}
+
+    .resister_form_wrap{
+      margin-bottom: 20px;
+      overflow: hidden;
+      .label_ttl{
+        display: block;
+        margin-bottom: 10px;
+        font-size: 16px;
+        span.required{
+          display: inline-block;
+          padding: 5px 10px;
+          border-radius: 5px;
+          background: #FFBE00;
+          color: #fff;
+          font-size: 12px;
+          margin-left: 10px;
+        }
+      }
+      input[type="email"],
+      input[type="password"],
+      input[type="text"],
+      input[type="date"],
+      input[type="time"]{
+        width: 100%;
+        display: block;
+        box-shadow: none;
+        font-size: 14px;
+        box-sizing: border-box;
+        border: 1px solid #BABDBE;
+        border-radius: 5px;
+        background: #EEEEEE;
+        padding: 10px;
+        line-height: 20px;
+        box-shadow: none;
+        appearance: none;
+        min-height: 40px;
+        @media screen and (max-width: 700px){
+          font-size: 16px;
+        }
+        &:focus{
+          outline: 0;
+          border: 1px solid #FFBE00;
+        }
+      }
+      textarea{
+        width: 100%;
+        font-size: 14px;
+        height: 200px;
+        box-sizing: border-box;
+        border: 1px solid #BABDBE;
+        border-radius: 5px;
+        background: #EEEEEE;
+        padding: 10px;
+        line-height: 1.6;
+        appearance: none;
+        @media screen and (max-width: 700px){
+          font-size: 16px;
+        }
+        &:focus{
+          outline: 0;
+          border: 1px solid #FFBE00;
+        }
+      }
+      .search_people{
+        width: 100%;
+        display: block;
+        color: #fff;
+        padding: 10px 0;
+        border-radius: 5px;
+        font-size: 16px;
+        background-image: linear-gradient(to right, #FFCB00, #FFB400);
+        @include hover;
+      }
+      .upload_flex{
+        position: relative;
+        border: 1px dotted #444;
+        transition: opacity .4s, border .4s;
+        &:hover{
+          opacity: 0.8;
+          background: #fcfcfc;
+          border: 1px dotted #FFBE00;
+        }
+
+        input[type="file"]{
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top:0;
+          bottom:0;
+          left:0;
+          right:0;
+          margin: auto;
+          opacity: 0;
+          z-index: 10;
+        }
+        .upload_inner{
+          @include flexSet;
+          align-items: center;
+          padding: 20px;
+          .preview{
+            width: 300px;
+            height: 180px;
+            margin-right: 20px;
+            position: relative;
+            overflow: hidden;
+            img{
+              position: absolute;
+              top:0;
+              bottom:0;
+              left:0;
+              right:0;
+              margin: auto;
+            }
+          }
+          .upload_wrap{
+            width: calc(100% - 320px);
+            .upload{
+              width: 100%;
+              background: #f1f1f1;
+              border-radius: 5px;
+              display: block;
+              text-align: center;
+              margin-bottom: 20px;
+              span{
+                display: inline-block;
+                position: relative;
+                padding: 7px 0 7px 30px;
+
+                &::before{
+                  position: absolute;
+                  display: block;
+                  content: "";
+                  width: 15px;
+                  height: 15px;
+                  top:0;
+                  bottom:0;
+                  left:0;
+                  margin: auto;
+                  @include bgSet;
+                  background-size: 15px;
+                  background-image: url(../img/common/file_upload.png)
+                }
+              }
+            }
+            .size{
+              font-size: 12px;
+              color: #888;
+              line-height: 1.6;
+              .ttl{
+                color: #EA4343;
+                span{
+                  display: block;
+                  padding-left: 25px;
+                  position: relative;
+                  font-size: 14px;
+                  margin-bottom: 10px;
+                  &::before{
+                    position: absolute;
+                    content: "";
+                    display: block;
+                    left: 0;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-color: #EA4343;
+                    background-image: url(../img/common/alert.png);
+                    background-size: 12px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .submit_wrap{
+      margin-top: 50px;
+      margin-bottom: 30px;
+      text-align: center;
+      .submit_button{
+        display: block;
+        max-width: 350px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 15px 0;
+        border-radius: 100px;
+        color: #fff;
+        font-weight: bold;
+        font-size: 18px;
+        background-image: linear-gradient(to right, #FFCB00, #FFB400);
+        margin-bottom: 10px;
+        cursor:pointer;
+      }
+      .reset_pass{
+        display: block;
+        max-width: 350px;
+        width: 100%;
+        margin: 0 auto;
+        color: #000;
+        padding: 10px 0;
+        font-size: 16px;
+        cursor:pointer;
+        background: none;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+  .signUp{
+    text-align: center;
+    a{
+      display: inline-block;
+      padding: 10px;
+      color: #FFBE00;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+  .sns_login{
+    @include flexSet;
+    justify-content: space-between;
+    margin-top: 40px;
+    a{
+      display: block;
+      max-width: 320px;
+      width: 100%;
+      padding: 15px 0;
+      font-size: 18px;
+      border-radius: 100px;
+      text-align: center;
+      letter-spacing: 1px;
+      @include hover;
+      span{
+        display: inline-block;
+        padding-left: 50px;
+        position: relative;
+        &::before{
+          display: block;
+          content: "";
+          position: absolute;
+          top:0;
+          left:0;
+          bottom:0;
+          margin: auto;
+          width: 18px;
+          height: 18px;
+          @include bgSet;
+        }
+      }
+
+      &.g_login{
+        transition: opacity .5s, border .5s, color .5s;
+        color: #000;
+        border: 1px solid #000;
+        &:hover{
+          color: #666;
+          border: 1px solid #666;
+        }
+        span{
+          &::before{
+            background-image: url(../img/login/glogo.png);
+          }
+        }
+      }
+      &.fb_login{
+        background: #4267B2;
+        border: 1px solid #4267B2;
+        color: #fff;
+        span{
+          &::before{
+            background-image: url(../img/login/fblogo.png);
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 700px){
+      .submit_wrap{
+        margin-top: 30px;
+        .submit_button{
+          max-width: 90%;
+          width: 90%;
+          padding: 12px 0;
+        }
+        .reset_pass{
+          max-width: 90%;
+          width: 90%;
+        }
+    .sns_login{
+      display: block;
+      margin-top: 40px;
+      a{
+        max-width: 90%;
+        width: 90%;
+        font-size: 14px;
+        margin: 0 auto;
+        span{
+          padding-left: 40px;
+        }
+
+        &.g_login{
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px){
+  .resister_form_wrap {
+    .upload_flex{
+      .upload_inner{
+        display: block;
+        align-items: center;
+        padding: 20px;
+        .preview{
+          width: 100%;
+          height: 50vw;
+          margin-right: 0px;
+          margin-bottom: 20px;
+        }
+        .upload_wrap{
+          width: 100%;
+          .upload{
+            width: 100%;
+            display: block;
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+}
