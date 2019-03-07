@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
+	<title>マッチング2 | buddy up管理画面</title>
+	<meta name="description" content="マッチング1 | buddy up管理画面">
+	<meta property="og:locale" content="ja_JP">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div id="app">
+		<header>
+			<div class="header_inner">
+				<div class="header_logo">
+					<a class="logo" href="/"></a>
+				</div>
+				<div class="header_nav">
+					<a class="user" href="#aaaa">
+					<span class="name">Fujitsu Taro</span>
+				</a>
+				</div>
+			</div>
+		</header>
+		<div class="wrapper">
+			<div class="side">
+				<nav>
+					<ul>
+						<li>
+							<a href="#aaaa">
+							<img src="img/side/side_home.svg">
+							<span>ホーム</span>
+						</a>
+						</li>
+						<li>
+							<a href="#aaaa">
+							<img src="img/side/side_event.svg">
+							<span>イベント</span>
+						</a>
+						</li>
+						<li>
+							<a href="#aaaa">
+							<img src="img/side/side_user.svg">
+							<span>ユーザー</span>
+						</a>
+						</li>
+						<li>
+							<a href="#aaaa">
+							<img src="img/side/side_tag.svg">
+							<span>タグ</span>
+						</a>
+						</li>
+						<li>
+							<a href="#aaaa">
+							<img src="img/side/side_message.svg">
+							<span>メッセージ</span>
+						</a>
+						</li>
+						<li class="active">
+							<a href="#aaaa">
+							<img src="img/side/side_matching.svg">
+							<span>マッチング</span>
+						</a>
+						</li>
+						<li class="active">
+							<a class="subcat" href="matching-1.html">
+							<span>送信</span>
+						</a>
+						</li>
+						<li>
+							<a class="subcat" href="matching-list.html">
+							<span>履歴</span>
+						</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<!-- comp-side -->
+			<article class="matching02">
+				<div class="article_inner">
+					<h1 class="comp-pagetitle">コミュニティ内の人たちをAIでマッチングすることで、自動的にイベントを作成することができます</h1>
+					<div class="comp-flow">
+						<ul>
+							<li :class="{ active : item.state }" v-for="(item, index) in flow">
+								<span class="num">{{ index + 1 }}</span>
+								<span class="txt" v-html="item.title"></span>
+							</li>
+						</ul>
+					</div>
+					<!-- comp-flow -->
+					<div class="content">
+						<div class="search_wrap">
+							<div class="search_item">
+								<div class="comp-checkbox">
+									<label class="check_item">
+										<input type="checkbox" name="tagItem01">
+										<span class="title">マッチング人数</span>
+									</label>
+								</div>
+								<div class="input_wrap">
+									<input type="number">人組
+								</div>
+							</div><!-- search_item -->
+							<div class="search_item">
+								<div class="comp-checkbox">
+									<label class="check_item">
+										<input type="checkbox" name="tagItem01">
+										<span class="title">興味関心</span>
+									</label>
+								</div>
+								<div class="input_wrap">
+								</div>
+							</div><!-- search_item -->
+							<div class="search_item">
+								<div class="comp-checkbox">
+									<label class="check_item">
+										<input type="checkbox" name="tagItem01">
+										<span class="title">活動範囲</span>
+									</label>
+								</div>
+								<div class="input_wrap">
+								</div>
+							</div><!-- search_item -->
+							<div class="search_item">
+								<div class="comp-checkbox">
+									<label class="check_item">
+										<input type="checkbox" name="tagItem01">
+										<span class="title">年齢</span>
+									</label>
+								</div>
+								<div class="input_wrap">
+								</div>
+							</div><!-- search_item -->
+						<div class="comp-submitbutton">
+							<button>マッチングする</button>
+						</div>
+					</div><!-- seach_wrap -->
+					<div class="comp-table">
+						<div class="table_inner">
+						<table border="1">
+  					<tr>
+    					<th class="no_caret"><input type="checkbox"></th>
+							<th>グループ</th>
+							<th>興味関心</th>
+							<th>活動範囲</th>
+							<th>幹事</th>
+							<th>メンバー</th>
+  					</tr>
+  						<tr v-for="(item, index) in chartList">
+    					<td><input type="checkbox"></td>
+							<td><span class="txt"><center>{{ index }}</center></span></td>
+							<td>
+								<span class="comp-tag">{{ item.interest }}</span>
+							</td>
+							<td>
+								<span class="comp-tag">{{ item.place }}</span>
+							</td>
+							<td>
+								<span class="txt">{{ item.kanji }}</span>
+							</td>
+							<td>
+								<span v-for="item in item.members" class="txt">{{ item }}</span>
+							</td>
+  					</tr>
+						</table>
+						</div>
+					</div>
+					<!-- content -->
+					<div class="comp-fixedbutton">
+						<div class="inner">
+							<a class="gray" href="matching-1.html">戻る</a>
+							<a class="yellow" href="matching-3.html">次へ</a>
+						</div>
+					</div>
+				</div>
+				<!-- article_inner -->
+			</article>
+		</div>
+	</div>
+	<!-- #app -->
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/matching/matching_view2.js"></script>
+
+</html>

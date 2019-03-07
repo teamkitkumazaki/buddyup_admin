@@ -1,4 +1,4 @@
-@import 'mixins.scss';
+@import '../mixins.scss';
 .comp-radio{
   @include flexSet;
   justify-content: center;
@@ -6,6 +6,7 @@
   .radio_item {
     @include flexSet;
     align-items: center;
+    cursor: pointer;
 
     input[type="radio"] {
       display: none;
@@ -19,6 +20,7 @@
       line-height: 1.5;
       letter-spacing: normal;
       color: #000000;
+      cursor: pointer;
     }
 
     input[type="radio"] + label::before {

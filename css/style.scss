@@ -58,11 +58,20 @@ body {
 @import 'side.scss';
 @import 'common.scss';
 /* コンポーネント系 */
-@import 'comp-pagetitle.scss';
-@import 'comp-flow.scss';
-@import 'comp-pagetab.scss';
-@import 'comp-search-form.scss';
-@import 'comp-radio.scss';
-@import 'comp-checkbox.scss';
+@import 'component/comp-tag.scss';
+@import 'component/comp-pagetitle.scss';
+@import 'component/comp-flow.scss';
+@import 'component/comp-pagetab.scss';
+@import 'component/comp-search-form.scss';
+@import 'component/comp-radio.scss';
+@import 'component/comp-checkbox.scss';
+@import 'component/comp-selectedtags.scss';
+@import 'component/comp-submitbutton.scss';
+@import 'component/comp-table.scss';
+@import 'component/comp-fixedbutton.scss';
+@import 'component/comp-editbutton.scss';
 /* ページ個別 */
-@import 'matching01.scss';
+@import 'matching/matching01.scss';
+@import 'matching/matching02.scss';
+@import 'matching/matching03.scss';
+@import 'matching/matching04.scss';

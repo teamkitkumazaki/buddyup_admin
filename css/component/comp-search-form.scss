@@ -1,7 +1,7 @@
-@import 'mixins.scss';
+@import '../mixins.scss';
 input[type="text"].comp-search-form{
   width: 420px;
-  margin: 30px auto;
+  margin: 0px auto 30px;
   padding: 5px 10px;
   border-radius: 200px;
   border: solid 1px #cac7c7;

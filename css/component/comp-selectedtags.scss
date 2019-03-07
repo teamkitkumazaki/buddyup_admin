@@ -1,0 +1,26 @@
+@import '../mixins.scss';
+.comp-selectedtags{
+  position: relative;
+  display: inline-block;
+  margin: 5px 5px 5px 0px;
+  padding: 7px 25px 7px 15px;
+  border-radius: 100px;
+  background-color: $basicGray3;
+  @include hover;
+  cursor: pointer;
+  color: #fff;
+  font-size: 12px;
+  &::after{
+    position: absolute;
+    display: block;
+    content: "";
+    width: 7px;
+    height: 7px;
+    top: 0;
+    bottom: 0;
+    right: 10px;
+    margin: auto;
+    @include bgSet;
+    background-image: url(../img/common/close_white.png);
+  }
+}

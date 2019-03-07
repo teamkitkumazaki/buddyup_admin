@@ -1,4 +1,4 @@
-@import 'mixins.scss';
+@import '../mixins.scss';
 .matching01{
   .export{
     margin-bottom: 30px;
@@ -32,6 +32,24 @@
         padding: 5px 15px;
         border-radius: 5px;
       }
+    }
+  }
+  .tag_wrap{
+    max-width: 700px;
+    height: 200px;
+    overflow: hidden;
+    margin: 0 auto 30px;
+  }
+  .selected_tags{
+    max-width: 700px;
+    height: 100px;
+    margin: 0 auto;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: solid 1px #707070;
+    span{
+
     }
   }
 }

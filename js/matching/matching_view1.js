@@ -112,6 +112,38 @@ var app = new Vue({
       {id:98, name: "印刷技術者", cat:8, },
       {id:99, name: "雑誌記者", cat:8, },
       {id:100, name: "小説作家", cat:8, },
+    ],
+    chartList:[
+      {
+        name: 'FUJITSU TARO',
+        tags: ['エンジニア', 'デザイン', 'UI/UX'],
+        place: ['渋谷', '品川'],
+      },
+      {
+        name: 'FUJITSU ZIRO',
+        tags: ['雑誌記者', 'ジャーナリスト'],
+        place: ['渋谷', '浜松町'],
+      },
+      {
+        name: 'FUJITSU TARO',
+        tags: ['エンジニア', 'デザイン', 'UI/UX'],
+        place: ['渋谷', '品川'],
+      },
+      {
+        name: 'FUJITSU ZIRO',
+        tags: ['雑誌記者', 'ジャーナリスト'],
+        place: ['渋谷', '浜松町'],
+      },
+      {
+        name: 'FUJITSU TARO',
+        tags: ['エンジニア', 'デザイン', 'UI/UX'],
+        place: ['渋谷', '品川'],
+      },
+      {
+        name: 'FUJITSU ZIRO',
+        tags: ['雑誌記者', 'ジャーナリスト'],
+        place: ['渋谷', '浜松町'],
+      },
     ]
   },
   methods:{

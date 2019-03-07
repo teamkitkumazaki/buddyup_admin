@@ -7,7 +7,9 @@
   height: 100vh;
   background: $basicBlack;
   border-top: 1px solid $gray02;
+  z-index: 1000;
   nav{
+    padding-top: 15px;
     li{
       a{
         display: block;

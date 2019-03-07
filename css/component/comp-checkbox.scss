@@ -1,22 +1,35 @@
-@import 'mixins.scss';
+@import '../mixins.scss';
 .comp-checkbox{
   @include flexSet;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  .check_item{
+    @include flexSet;
+    align-items: center;
+    display: block;
+    margin-bottom: 15px;
+    cursor: pointer;
+  }
   input[type="checkbox"]{
     display: none;
   }
 .title{
-  padding-left: 20px;
+  padding-left: 25px;
   position:relative;
   margin-right: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #000000;
 }
 .title::before{
   content: "";
   display: block;
   position: absolute;
   top: 0;
+  bottom: 0;
   left: 0;
+  margin: auto;
   width: 15px;
   height: 15px;
   border: 1px solid #787878;
@@ -29,7 +42,7 @@ input[type="checkbox"]:checked + .title::after{
   content: "";
   display: block;
   position: absolute;
-  top: -5px;
+  top: -3px;
   left: 5px;
   width: 7px;
   height: 14px;

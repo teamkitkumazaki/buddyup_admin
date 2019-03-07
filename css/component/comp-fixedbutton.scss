@@ -1,0 +1,40 @@
+@import '../mixins.scss';
+.comp-fixedbutton{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  margin: auto;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
+  padding: 10px 0;
+  z-index: 100;
+  .inner{
+    width: calc(100% - 50px);
+    @include flexSet;
+    justify-content: flex-end;
+    a, button{
+      display: inline-block;
+      text-align: center;
+      appearance: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      line-height: 1.5;
+      padding: 5px 20px;
+      letter-spacing: normal;
+      border-radius: 100px;
+      @include hover;
+      &.gray{
+        background: $basicGray2;
+        color: #fff;
+        margin-right: 15px;
+      }
+      &.yellow{
+        background: $basicYellow;
+        color: #fff;
+      }
+    }
+  }
+}

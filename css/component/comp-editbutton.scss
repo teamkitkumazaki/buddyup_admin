@@ -1,0 +1,28 @@
+@import '../mixins.scss';
+.comp-editbutton{
+  display: inline-block;
+  text-align: center;
+  appearance: none;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  line-height: 1.5;
+  padding: 5px 20px;
+  letter-spacing: normal;
+  border-radius: 100px;
+  @include hover;
+  background: $basicGray2;
+  color: #fff;
+  &::before{
+    display: inline-block;
+    content: "編集";
+  }
+  &.complete{
+    background: $basicYellow;
+    color: #fff;
+    &::before{
+      display: inline-block;
+      content: "完了";
+    }
+  }
+}

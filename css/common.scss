@@ -12,13 +12,15 @@ article{
    min-height: 100vh;
    .article_inner{
      width: calc(100% - 100px);
-     padding: 30px 0;
+     padding: 30px 0 120px 0;
      margin: 0px auto;
    }
    .content{
      width: 100%;
+     position: relative;
+     min-height: calc(100vh - 480px);
      background: #fff;
-     padding: 30px 0;
+     padding: 40px 0;
      box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.04);
    }
 }
@@ -87,6 +89,7 @@ article{
   input[type="email"]:focus,
   input[type="tel"]:focus,
   input[type="button"]:focus,
+  input[type="number"]:focus,
   select:focus,
   textarea:focus {
     outline: 0;
@@ -97,7 +100,8 @@ article{
   input[type="email"],
   input[type="tel"],
   input[type="password"],
-  input[type="date"]  {
+  input[type="date"],
+  input[type="number"] {
     display: block;
     box-sizing: border-box;
     padding: 3px;

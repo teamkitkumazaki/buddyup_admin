@@ -1,5 +1,6 @@
-@import 'mixins.scss';
+@import '../mixins.scss';
 .comp-pagetab{
+  margin-bottom: 30px;
   ul{
     display: flex;
     flex-wrap: nowrap;

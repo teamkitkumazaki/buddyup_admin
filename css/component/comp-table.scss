@@ -1,0 +1,60 @@
+@import '../mixins.scss';
+.comp-table{
+  max-width: 820px;
+  margin: 30px auto;
+  .table_inner{
+    width: 100%;
+    overflow: scroll;
+    table{
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      tr:nth-child(odd){
+        text-align: left;
+        background-color: #eee
+      }
+      th{
+        position: relative;
+        text-align: left;
+        padding: 10px 30px 10px 10px;
+        font-weight: normal;
+        background: $basicYellow;
+        color: #fff;
+        border-right: 2px solid #fff;
+        &::after{
+          position: absolute;
+          display: block;
+          content: "";
+          width: 7px;
+          height: 7px;
+          top: 0;
+          bottom: 5px;
+          right: 10px;
+          margin: auto;
+          border-top: 1.5px solid #fff;
+          border-right: 1.5px solid #fff;
+          transform: rotate(135deg);
+        }
+        &.no_caret{
+          &::after{
+            display: none;
+          }
+        }
+        &:last-child{
+          border-right:0;
+        }
+      }
+      td{
+        text-align: left;
+        padding: 10px;
+        .txt{
+          display: inline-block;
+          font-size: 12px;
+          margin-right: 1em;
+          letter-spacing: normal;
+          color: #000000;
+        }
+      }
+    }
+  }
+}
