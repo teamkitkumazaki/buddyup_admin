@@ -1,4 +1,5 @@
 @import 'mixins.scss';
+/* 基本レイアウト */
 .wrapper{
   min-width: 1100px;
   position: relative;
@@ -21,3 +22,105 @@ article{
      box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.04);
    }
 }
+
+/* フォーム */
+  select {
+    -webkit-appearance: none;
+    appearance: none;
+    font-size: 14px;
+  }
+
+  ::placeholder {
+    color: #aaa !important;
+    font-size: 14px;
+    font-weight: normal;
+    @media screen and (max-width: 780px){
+      /*padding-top: 0.25em;*/
+    }
+  }
+
+  ::-webkit-placeholder {
+    /*padding-top: 0.25em;*/
+  }
+
+  ::-moz-placeholder {
+    color: #aaa;
+    opacity: 1;
+  }
+
+  ::-moz-placeholder {
+    color: #aaa;
+    opacity: 1;
+  }
+
+  ::-ms-input-placeholder {
+    color: #aaa;
+  }
+
+  button{
+    font-family: initial;
+    appearance: none;
+    transition: opacity .5s;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  textarea {
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 0;
+    -webkit-appearance: none;
+    box-shadow: none;
+    box-shadow: none;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  input {
+    transition: border-color 0.3s;
+    box-shadow: none;
+  }
+
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  input[type="button"]:focus,
+  select:focus,
+  textarea:focus {
+    outline: 0;
+    border-color: $basicYellow !important;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  input[type="date"]  {
+    display: block;
+    box-sizing: border-box;
+    padding: 3px;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    border: 0;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: solid 1px #cac7c7;
+  }
+
+  input[type="submit"],
+  input[type="button"] {
+    -webkit-appearance: none;
+    appearance: none;
+    transition: opacity .5s;
+    border: none;
+    cursor: pointer;
+
+    &:hover{
+      opacity: 0.7;
+      box-shadow: none;
+    }
+  }

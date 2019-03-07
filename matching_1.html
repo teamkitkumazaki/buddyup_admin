@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,91 +10,131 @@
 	<meta property="og:locale" content="ja_JP">
 	<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 	<div id="app">
-	<header>
-		<div class="header_inner">
-			<div class="header_logo">
-				<a class="logo" href="/"></a>
-			</div>
-			<div class="header_nav">
-				<a class="user" href="#aaaa">
+		<header>
+			<div class="header_inner">
+				<div class="header_logo">
+					<a class="logo" href="/"></a>
+				</div>
+				<div class="header_nav">
+					<a class="user" href="#aaaa">
 					<span class="name">Fujitsu Taro</span>
 				</a>
+				</div>
 			</div>
-		</div>
-	</header>
-	<div class="wrapper">
-		<div class="side">
-			<nav>
-				<ul>
-					<li>
-						<a href="#aaaa">
+		</header>
+		<div class="wrapper">
+			<div class="side">
+				<nav>
+					<ul>
+						<li>
+							<a href="#aaaa">
 							<img src="img/side/side_home.svg">
 							<span>ホーム</span>
 						</a>
-					</li>
-					<li>
-						<a href="#aaaa">
+						</li>
+						<li>
+							<a href="#aaaa">
 							<img src="img/side/side_event.svg">
 							<span>イベント</span>
 						</a>
-					</li>
-					<li>
-						<a href="#aaaa">
+						</li>
+						<li>
+							<a href="#aaaa">
 							<img src="img/side/side_user.svg">
 							<span>ユーザー</span>
 						</a>
-					</li>
-					<li>
-						<a href="#aaaa">
+						</li>
+						<li>
+							<a href="#aaaa">
 							<img src="img/side/side_tag.svg">
 							<span>タグ</span>
 						</a>
-					</li>
-					<li>
-						<a href="#aaaa">
+						</li>
+						<li>
+							<a href="#aaaa">
 							<img src="img/side/side_message.svg">
 							<span>メッセージ</span>
 						</a>
-					</li>
-					<li class="active">
-						<a href="#aaaa">
+						</li>
+						<li class="active">
+							<a href="#aaaa">
 							<img src="img/side/side_matching.svg">
 							<span>マッチング</span>
 						</a>
-					</li>
-					<li class="active">
-						<a class="subcat" href="#aaaa">
+						</li>
+						<li class="active">
+							<a class="subcat" href="#aaaa">
 							<span>送信</span>
 						</a>
-					</li>
-					<li>
-						<a class="subcat" href="#aaaa">
+						</li>
+						<li>
+							<a class="subcat" href="#aaaa">
 							<span>履歴</span>
 						</a>
-					</li>
-				</ul>
-			</nav>
-		</div><!-- comp-side -->
-		<article class="matching01">
-			<div class="article_inner">
-				<h1 class="comp-pagetitle">コミュニティ内の人たちをAIでマッチングすることで、自動的にイベントを作成することができます</h1>
-				<div class="comp-flow">
-					<ul>
-						<li :class="{ active : item.state }" v-for="(item, index) in flow">
-							<span class="num">{{ index + 1 }}</span>
-							<span class="txt" v-html="item.title"></span>
 						</li>
 					</ul>
-				</div><!-- comp-flow -->
-				<div class="content">
+				</nav>
+			</div>
+			<!-- comp-side -->
+			<article class="matching01">
+				<div class="article_inner">
+					<h1 class="comp-pagetitle">コミュニティ内の人たちをAIでマッチングすることで、自動的にイベントを作成することができます</h1>
+					<div class="comp-flow">
+						<ul>
+							<li :class="{ active : item.state }" v-for="(item, index) in flow">
+								<span class="num">{{ index + 1 }}</span>
+								<span class="txt" v-html="item.title"></span>
+							</li>
+						</ul>
+					</div>
+					<!-- comp-flow -->
+					<div class="content">
+						<div class="export">
+							<div class="wrap">
+								<span class="ttl">データ形式の選択</span>
+								<div class="comp-radio">
+									<div v-for="(item, index) in radioItem01" class="radio_item">
+										<input type="radio" name="radio02" class="radio02-input" :value="item.value" :id="item.value">
+										<label :for="item.value">{{ item.name }}</label>
+									</div>
+								</div>
+							</div>
+							<!-- wrap -->
+							<div class="input_wrap">
+								<input type="text" name="export_quote">
+								<button>参照</button>
+							</div>
+						</div>
+						<!-- export -->
+						<div class="comp-pagetab">
+							<ul>
+								<li class="active"><button>興味関心</button></li>
+								<li><button>活動範囲</button></li>
+							</ul>
+						</div>
+						<div class="seach_wrap">
+							<input class="comp-search-form" type="text" name="tag_search" placeholder="検索">
+							<div class="tag_wrap">
+								<div class="comp-checkbox">
+  									<label v-for="(item, index) in tagItem01" class="check_item">
+    									<input type="checkbox" name="tagItem01" :value="item.id">
+    									<span class="title">{{ item.name }}</span>
+										</label>
+							</div>
+						</div>
+					</div>
+					<!-- content -->
 				</div>
-			</div><!-- article_inner -->
-		</article>
+				<!-- article_inner -->
+			</article>
+		</div>
 	</div>
-</div><!-- #app -->
+	<!-- #app -->
 </body>
-	<script type="text/javascript" src="js/vue.js"></script>
-	<script type="text/javascript" src="js/matching_view1.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/matching_view1.js"></script>
+
 </html>

@@ -53,7 +53,6 @@ body {
 }
 /* リセット */
 @import 'reset.scss';
-@import 'form.scss';
 /* 共通パーツ */
 @import 'header.scss';
 @import 'side.scss';
@@ -61,5 +60,9 @@ body {
 /* コンポーネント系 */
 @import 'comp-pagetitle.scss';
 @import 'comp-flow.scss';
+@import 'comp-pagetab.scss';
+@import 'comp-search-form.scss';
+@import 'comp-radio.scss';
+@import 'comp-checkbox.scss';
 /* ページ個別 */
 @import 'matching01.scss';
