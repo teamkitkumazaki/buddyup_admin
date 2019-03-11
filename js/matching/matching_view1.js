@@ -6,12 +6,21 @@ var app = new Vue({
       {state: false, title: 'マッチング方法<br>を選ぶ'},
       {state: false, title: '確認する'},
       {state: false, title: '案内を送る'},
+      //ページ上部のフロー図の項目
     ],
     radioItem01:[
-      { value: 'csv1', name: 'Buddy Up!'},
-      { value: 'csv2', name: 'CSV'},
+      { value: 'export1', name: 'Buddy Up!'},
+      { value: 'export2', name: 'CSV'},
+      //エクスポートの形式の選択肢
     ],
-    tagItem01:[
+    exportState: '', // エクスポートの形式の選択状態
+    tabState: 1, // タブの切り替え制御
+    searchSubmit: false, // 検索結果の表示・非表示
+    selectedTab:[], //検索条件として選択しているタグが入る配列
+    searchTagInput: '',
+    searchTagMode: false,
+    showall: false,
+    tagList:[
       {id:1, name: "システムエンジニア"},
       {id:2, name: "セールスエンジニア"},
       {id:3, name: "セキュリティエンジニア"},
@@ -37,14 +46,14 @@ var app = new Vue({
       {id:23, name: "インダストリアルエンジニア", cat:2, },
       {id:24, name: "機械設計士", cat:2, },
       {id:25, name: "ロボット設計技術者", cat:2, },
-      {id:26, name: "Webプロデューサー", cat:3, },
-      {id:27, name: "Webディレクター", cat:3, },
-      {id:28, name: "Webコンテンツプランナー", cat:3, },
-      {id:29, name: "Webデザイナー", cat:3, },
-      {id:30, name: "Webエンジニア", cat:3, },
+      {id:26, name: "WEBプロデューサー", cat:3, },
+      {id:27, name: "WEBディレクター", cat:3, },
+      {id:28, name: "WEBコンテンツプランナー", cat:3, },
+      {id:29, name: "WEBデザイナー", cat:3, },
+      {id:30, name: "WEBエンジニア", cat:3, },
       {id:31, name: "コーダー", cat:3, },
-      {id:32, name: "Webマーケティング", cat:3, },
-      {id:33, name: "Webライター", cat:3, },
+      {id:32, name: "WEBマーケティング", cat:3, },
+      {id:33, name: "WEBライター", cat:3, },
       {id:34, name: "ゲームプランナー", cat:4, },
       {id:35, name: "ゲームクリエイター", cat:4, },
       {id:36, name: "ゲームサウンドクリエイター", cat:4, },
@@ -113,6 +122,38 @@ var app = new Vue({
       {id:99, name: "雑誌記者", cat:8, },
       {id:100, name: "小説作家", cat:8, },
     ],
+    searchPlaceInput: '',
+    selectedPlace:[],
+    searchPlaceMode: false,
+    placeList:[
+      { id:1, name: "池袋"},
+      { id:2, name: "大塚"},
+      { id:3, name: "巣鴨"},
+      { id:4, name: "駒込"},
+      { id:5, name: "田端"},
+      { id:6, name: "西日暮里"},
+      { id:7, name: "日暮里"},
+      { id:8, name: "鶯谷"},
+      { id:9, name: "上野"},
+      { id:10, name: "御徒町"},
+      { id:11, name: "秋葉原"},
+      { id:12, name: "神田"},
+      { id:13, name: "東京"},
+      { id:14, name: "有楽町"},
+      { id:15, name: "浜松町"},
+      { id:16, name: "田町"},
+      { id:17, name: "品川"},
+      { id:18, name: "大崎"},
+      { id:19, name: "五反田"},
+      { id:20, name: "恵比寿"},
+      { id:21, name: "渋谷"},
+      { id:22, name: "原宿"},
+      { id:23, name: "代々木"},
+      { id:24, name: "新宿"},
+      { id:25, name: "新大久保"},
+      { id:26, name: "高田馬場"},
+      { id:27, name: "目白"},
+    ],
     chartList:[
       {
         name: 'FUJITSU TARO',
@@ -147,7 +188,58 @@ var app = new Vue({
     ]
   },
   methods:{
+    searchTags(e) {
+      setTimeout(function () {
+        if (this.searchTagInput.length > 0) {
+          this.searchTagMode = true;
+        }else{
+          this.searchTagMode = false;
+        }
+      }.bind(this), 300);
+    },
+    removeTags(num){
+      this.selectedTab.splice( num , 1 );
+    },
+    searchTagSubmit(){
+      if(this.selectedTab.length > 0){
+        this.searchSubmit = true
+      }else{
+        alert('1つ以上のタグを選択してください！');
+      }
+    },
+    searchPlace(e) {
+      setTimeout(function () {
+        if (this.searchPlaceInput.length > 0) {
+          console.log(this.searchTagInput);
+          this.searchPlaceMode = true;
+        }else{
+          this.searchPlaceMode = false;
+        }
+      }.bind(this), 300);
+    },
+    removePlace(num){
+      this.selectedPlace.splice( num , 1 );
+    },
+    searchPlaceSubmit(){
+      if(this.selectedPlace.length > 0){
+        this.searchSubmit = true
+      }else{
+        alert('1つ以上のエリアを選択してください！');
+      }
+    },
   },
   computed: {
+    filteredTags: function() {
+      query = this.searchTagInput; // テキストフィールドの値を変数に格納
+      return this.tagList.filter( function( tags ) {
+        return tags.name.indexOf( query ) !== -1
+      })
+    },
+    filteredPlace: function() {
+      query = this.searchPlaceInput; // テキストフィールドの値を変数に格納
+      return this.placeList.filter( function( place ) {
+        return place.name.indexOf( query ) !== -1
+      })
+    },
   }
 })

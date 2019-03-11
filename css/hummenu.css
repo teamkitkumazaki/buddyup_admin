@@ -1,0 +1,73 @@
+#hummenu {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 1001;
+  -webkit-transition: opacity .5s;
+  -o-transition: opacity .5s;
+  transition: opacity .5s;
+  opacity: 0;
+  pointer-events: none; }
+  #hummenu #backBg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 1002; }
+  #hummenu .hum_inner {
+    position: absolute;
+    width: 290px;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    left: -290px;
+    -webkit-transition: left .5s;
+    -o-transition: left .5s;
+    transition: left .5s;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    background: #fff;
+    z-index: 1003; }
+    #hummenu .hum_inner::-webkit-scrollbar {
+      display: none; }
+    #hummenu .hum_inner .content {
+      padding: 80px 20px; }
+      #hummenu .hum_inner .content .navigation ul li {
+        margin-bottom: 30px; }
+        #hummenu .hum_inner .content .navigation ul li a {
+          display: block;
+          color: #393939;
+          font-size: 14px;
+          -webkit-transition: color .2s;
+          -o-transition: color .2s;
+          transition: color .2s; }
+          #hummenu .hum_inner .content .navigation ul li a:hover {
+            color: #FFBE00; }
+      #hummenu .hum_inner .content .logout {
+        margin-top: 50px; }
+        #hummenu .hum_inner .content .logout button {
+          display: block;
+          color: #393939;
+          font-size: 14px;
+          cursor: pointer;
+          -webkit-transition: color .2s;
+          -o-transition: color .2s;
+          transition: color .2s;
+          padding: 0; }
+          #hummenu .hum_inner .content .logout button:hover {
+            color: #FFBE00; }
+  #hummenu.open {
+    opacity: 1;
+    pointer-events: all; }
+    #hummenu.open .hum_inner {
+      left: 0; }

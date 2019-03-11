@@ -97,45 +97,84 @@
 								<span class="ttl">データ形式の選択</span>
 								<div class="comp-radio">
 									<div v-for="(item, index) in radioItem01" class="radio_item">
-										<input type="radio" name="radio02" class="radio02-input" :value="item.value" :id="item.value">
+										<input type="radio" name="radio02" class="radio02-input" :value="item.value" :id="item.value" v-model="exportState">
 										<label :for="item.value">{{ item.name }}</label>
 									</div>
 								</div>
+								<div v-if="exportState == 'export2'" class="input_wrap">
+									<input type="text" name="export_quote">
+									<button>参照</button>
+								</div>
 							</div>
 							<!-- wrap -->
-							<div class="input_wrap">
-								<input type="text" name="export_quote">
-								<button>参照</button>
-							</div>
 						</div>
 						<!-- export -->
 						<div class="comp-pagetab">
 							<ul>
-								<li class="active"><button>興味関心</button></li>
-								<li><button>活動範囲</button></li>
+								<li v-bind:class="{ active: tabState == 1 }"><button @click="tabState = 1">興味関心</button></li>
+								<li v-bind:class="{ active: tabState == 2 }"><button @click="tabState = 2">活動範囲</button></li>
 							</ul>
 						</div>
+						<div v-if="tabState == 1">
 						<div class="seach_wrap">
-							<input class="comp-search-form" type="text" name="tag_search" placeholder="検索">
-							<div class="tag_wrap">
+							<input class="comp-search-form" type="text" name="tag_search" placeholder="検索" v-on:keyup="searchTags" v-model="searchTagInput">
+							<div v-if="!searchTagMode">
+							<div v-bind:class="{tag_wrap: true, all: showall}">
 								<div class="comp-checkbox">
-  									<label v-for="(item, index) in tagItem01" class="check_item">
-    									<input type="checkbox" name="tagItem01" :value="item.id">
+  									<label v-for="(item, index) in tagList" class="check_item">
+    									<input type="checkbox" name="tagItem" :value="item.name" v-model="selectedTab">
     									<span class="title">{{ item.name }}</span>
 										</label>
 							</div>
 						</div>
+						<div v-if="!showall" class="comp-loadingbutton">
+							<button @click="showall = true"><span>さらに表示</span></button>
+						</div>
+					</div>
+
+						<div v-if="searchTagMode" class="tag_wrap">
+							<div class="comp-checkbox">
+							<label v-for="(tags, index) in filteredTags" class="check_item">
+								<input type="checkbox" name="tagPlace" :value="tags.name" v-model="selectedTab">
+								<span class="title">{{ tags.name }}</span>
+							</label>
+						</div>
+						</div>
 						<div class="selected_tags">
-							<span class="comp-selectedtags">AIエンジニア</span>
-							<span class="comp-selectedtags">彫金師</span>
+							<span v-for="(item,index) in selectedTab" class="comp-selectedtags" v-on:click="removeTags(index)">{{ item }}</span>
 						</div><!-- selected_tags -->
 						<div class="comp-submitbutton">
-							<button>検索する</button>
+							<button @click="searchTagSubmit">検索する</button>
 						</div>
 					</div><!-- seach_wrap -->
-					<div class="comp-table">
-						<div class="table_inner">
-						<table border="1">
+					</div>
+
+					<div v-if="tabState == 2">
+					<div class="seach_wrap">
+						<input class="comp-search-form" type="text" name="tag_search" placeholder="検索" v-on:keyup="searchPlace" v-model="searchPlaceInput">
+						<div class="tag_wrap">
+							<div class="comp-checkbox">
+									<label v-if="!searchPlaceMode" v-for="(item, index) in placeList" class="check_item">
+										<input type="checkbox" name="tagPlace" :value="item.name" v-model="selectedPlace">
+										<span class="title">{{ item.name }}</span>
+									</label>
+									<label v-if="searchPlaceMode" v-for="(place, index) in filteredPlace" class="check_item">
+										<input type="checkbox" name="tagPlace" :value="place.name" v-model="selectedPlace">
+										<span class="title" v-on:click="removePlace(index)">{{ place.name }}</span>
+									</label>
+						</div>
+					</div>
+					<div class="selected_tags">
+						<span v-for="(item, index) in selectedPlace" class="comp-selectedtags" v-on:click="removePlace(index)">{{ item }}</span>
+					</div><!-- selected_tags -->
+					<div class="comp-submitbutton">
+						<button @click="searchPlaceSubmit">検索する</button>
+					</div>
+				</div><!-- seach_wrap -->
+			</div>
+			<div v-if="searchSubmit" class="comp-table">
+				<div class="table_inner">
+					<table border="1">
   					<tr>
     					<th class="no_caret"><input type="checkbox"></th>
 							<th>名前</th>
@@ -144,7 +183,7 @@
   					</tr>
   						<tr v-for="(item, index) in chartList">
     					<td><input type="checkbox"></td>
-							<td><span class="txt">{{ item.name}}</span></td>
+							<td><span class="txt">{{ item.name }}</span></td>
 							<td>
 								<span v-for="item in item.tags" class="comp-tag">{{ item }}</span>
 								<button>
@@ -154,7 +193,7 @@
 								</button>
 							</td>
 							<td>
-								<span v-for="item in item.place" class="comp-tag">渋谷</span>
+								<span v-for="item in item.place" class="comp-tag">{{ item }}</span>
 							</td>
   					</tr>
 						</table>

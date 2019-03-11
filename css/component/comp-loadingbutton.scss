@@ -1,0 +1,27 @@
+@import '../mixins.scss';
+.comp-loadingbutton{
+  margin: 30px auto;
+  button{
+    display: block;
+    width: 300px;
+    padding: 15px 0;
+    font-size: 16px;
+    letter-spacing: normal;
+    color: $basicYellow;
+    margin: 0 auto;
+    border-radius: 100px;
+    background-color: transparent;
+    border: 1px solid $basicYellow;
+    @include hover;
+    span{
+      display: inline-block;
+      padding-left: 20px;
+      background:{
+        repeat: no-repeat;
+        position: center left;
+        size: 10px;
+        image: url(../img/common/loading_button.svg);
+      }
+    }
+  }
+}
