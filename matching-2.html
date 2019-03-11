@@ -95,50 +95,90 @@
 						<div class="search_wrap">
 							<div class="search_item">
 								<div class="comp-checkbox">
-									<label class="check_item">
-										<input type="checkbox" name="tagItem01">
+									<label class="check_item disabled">
+										<input type="checkbox" name="searchInput01" v-model="setPeopleNum">
 										<span class="title">マッチング人数</span>
 									</label>
 								</div>
 								<div class="input_wrap">
-									<input type="number">人組
+									<input type="number" min="3" v-model="searchNum">人組
 								</div>
 							</div><!-- search_item -->
 							<div class="search_item">
 								<div class="comp-checkbox">
 									<label class="check_item">
-										<input type="checkbox" name="tagItem01">
-										<span class="title">興味関心</span>
+										<input type="checkbox" name="searchInput02" v-model="searchInterest">
+										<span v-bind:class="{title: true, not: !searchInterest}">興味関心</span>
 									</label>
 								</div>
 								<div class="input_wrap">
+									<div class="comp-selectbutton">
+										<div v-bind:class="{
+											wrap: true,
+											left: interestState == 'interest0',
+											right: interestState == 'interest1',
+											disabled: !searchInterest
+										}">
+											<div v-for="(item, index) in selectItem" class="radio_item">
+												<input type="radio" name="radio_interest" :value="'interest' + index" :id="'interest' + index" v-model="interestState">
+												<label :for="'interest' + index">{{ item.name }}</label>
+											</div>
+										</div>
+									</div><!-- comp-selectbutton -->
 								</div>
 							</div><!-- search_item -->
 							<div class="search_item">
 								<div class="comp-checkbox">
 									<label class="check_item">
-										<input type="checkbox" name="tagItem01">
-										<span class="title">活動範囲</span>
+										<input type="checkbox" name="searchInput03" v-model="searchArea" v-model="searchAge">
+										<span v-bind:class="{title: true, not: !searchArea}">活動範囲</span>
 									</label>
 								</div>
 								<div class="input_wrap">
+									<div class="comp-selectbutton">
+										<div v-bind:class="{
+											wrap: true,
+											left: areaState == 'area0',
+											right: areaState == 'area1',
+											disabled: !searchArea
+										}">
+											<div v-for="(item, index) in selectItem" class="radio_item">
+												<input type="radio" name="radio_area" :value="'area' + index" :id="'area' + index" v-model="areaState">
+												<label :for="'area' + index">{{ item.name }}</label>
+											</div>
+										</div>
+									</div><!-- comp-selectbutton -->
 								</div>
 							</div><!-- search_item -->
 							<div class="search_item">
 								<div class="comp-checkbox">
 									<label class="check_item">
-										<input type="checkbox" name="tagItem01">
-										<span class="title">年齢</span>
+										<input type="checkbox" name="searchInput04"
+										v-model="searchAge">
+										<span v-bind:class="{title: true, not: !searchAge}">年齢</span>
 									</label>
 								</div>
 								<div class="input_wrap">
+									<div class="comp-selectbutton">
+										<div v-bind:class="{
+											wrap: true,
+											left: ageState == 'age0',
+											right: ageState == 'age1',
+											disabled: !searchAge
+										}">
+											<div v-for="(item, index) in selectItem" class="radio_item">
+												<input type="radio" name="radio_interest" :value="'age' + index" :id="'age' + index" v-model="ageState">
+												<label :for="'age' + index">{{ item.name }}</label>
+											</div>
+										</div>
+									</div><!-- comp-selectbutton -->
 								</div>
 							</div><!-- search_item -->
 						<div class="comp-submitbutton">
-							<button>マッチングする</button>
+							<button @click="searchClick">マッチングする</button>
 						</div>
 					</div><!-- seach_wrap -->
-					<div class="comp-table">
+					<div v-if="searchSubmit" class="comp-table">
 						<div class="table_inner">
 						<table border="1">
   					<tr>

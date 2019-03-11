@@ -820,6 +820,8 @@ body {
     display: block;
     margin-bottom: 15px;
     cursor: pointer; }
+    .comp-checkbox .check_item.disabled {
+      pointer-events: none; }
   .comp-checkbox input[type="checkbox"] {
     display: none; }
   .comp-checkbox .title {
@@ -830,6 +832,8 @@ body {
     line-height: 1.5;
     letter-spacing: normal;
     color: #000000; }
+    .comp-checkbox .title.not {
+      color: #bfbfbf; }
   .comp-checkbox .title::before {
     content: "";
     display: block;
@@ -906,6 +910,83 @@ body {
     background-size: cover;
     background-position: center;
     background-image: url(../img/common/close_white.png); }
+
+@font-face {
+  font-family: 'Noto';
+  font-style: normal;
+  font-weight: bold;
+  src: url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Bold.woff2) format("woff2"), url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Bold.woff) format("woff"), url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Bold.otf) format("opentype"); }
+
+@font-face {
+  font-family: 'Noto';
+  font-style: normal;
+  font-weight: normal;
+  src: url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.woff2) format("woff2"), url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.woff) format("woff"), url(https://fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Regular.otf) format("opentype"); }
+
+body {
+  font-size: 12px;
+  line-height: 1;
+  background: #fff;
+  color: #393E46;
+  font-family: 'Noto', 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; }
+
+.comp-selectbutton .wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 5px;
+  border: solid 1px #c9cccc;
+  position: relative; }
+  .comp-selectbutton .wrap::before {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: #ffb500;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 3px;
+    -webkit-transition: left .2s;
+    -o-transition: left .2s;
+    transition: left .2s; }
+  .comp-selectbutton .wrap .radio_item {
+    width: 70px;
+    position: relative;
+    z-index: 10;
+    display: block;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer; }
+    .comp-selectbutton .wrap .radio_item.disabled {
+      pointer-events: none; }
+    .comp-selectbutton .wrap .radio_item label {
+      display: block;
+      width: 100%;
+      padding: 7px 0; }
+  .comp-selectbutton .wrap input[type="radio"] {
+    display: none; }
+  .comp-selectbutton .wrap.disabled {
+    pointer-events: none; }
+    .comp-selectbutton .wrap.disabled::before {
+      background: #bfbfbf; }
+  .comp-selectbutton .wrap.left::before {
+    left: 0; }
+  .comp-selectbutton .wrap.left .radio_item:nth-of-type(1) {
+    color: #fff; }
+  .comp-selectbutton .wrap.right::before {
+    left: 50%; }
+  .comp-selectbutton .wrap.right .radio_item:nth-of-type(2) {
+    color: #fff; }
 
 @font-face {
   font-family: 'Noto';

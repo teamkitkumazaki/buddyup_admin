@@ -9,6 +9,9 @@
     display: block;
     margin-bottom: 15px;
     cursor: pointer;
+    &.disabled{
+      pointer-events: none;
+    }
   }
   input[type="checkbox"]{
     display: none;
@@ -21,6 +24,9 @@
   line-height: 1.5;
   letter-spacing: normal;
   color: #000000;
+  &.not{
+    color: #bfbfbf;
+  }
 }
 .title::before{
   content: "";

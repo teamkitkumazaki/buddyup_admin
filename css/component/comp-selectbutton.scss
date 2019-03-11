@@ -1,0 +1,70 @@
+@import '../mixins.scss';
+.comp-selectbutton{
+  .wrap{
+    @include flexSet;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 5px;
+    border: solid 1px #c9cccc;
+    position: relative;
+    &::before{
+        display: block;
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        background: $basicYellow;
+        top:0;
+        bottom:0;
+        margin: auto;
+        border-radius: 3px;
+        transition: left .2s;
+    }
+    .radio_item{
+      width: 70px;
+      position: relative;
+      z-index: 10;
+      display: block;
+      font-size: 12px;
+      text-align: center;
+      cursor: pointer;
+      &.disabled{
+        pointer-events: none;
+      }
+      label{
+        display: block;
+        width: 100%;
+        padding: 7px 0;
+      }
+    }
+    input[type="radio"]{
+      display: none;
+    }
+    &.disabled{
+      pointer-events:none;
+      &::before{
+        background: #bfbfbf;
+      }
+    }
+    &.left{
+      &::before{
+        left:0;
+      }
+      .radio_item{
+        &:nth-of-type(1){
+          color: #fff;
+        }
+      }
+    }
+    &.right{
+      &::before{
+        left:50%;
+      }
+      .radio_item{
+        &:nth-of-type(2){
+          color: #fff;
+        }
+      }
+    }
+  }
+}
